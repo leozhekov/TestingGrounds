@@ -60,11 +60,17 @@ void AGun::OnFire()
 
 		}
 	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("No Projectile"))
+	}
 
 	// try and play the sound if specified
 	if (FireSound != NULL)
 	{
 		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("No FireSound"))
 	}
 
 	// try and play a firing animation if specified
@@ -75,5 +81,8 @@ void AGun::OnFire()
 		{
 			AnimInstance->Montage_Play(FireAnimation, 1.f);
 		}
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("No FireAnimation"))
 	}
 }
