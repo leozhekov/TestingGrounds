@@ -31,21 +31,25 @@ AMannequin::AMannequin()
 void AMannequin::BeginPlay()
 {
 	Super::BeginPlay();
-	if (GunBlueprint == NULL) {
+	if (GunBlueprint == NULL) 
+	{
 		UE_LOG(LogTemp, Warning, TEXT("Gun blueprint missing."));
 		return;
 	}
 	Gun = GetWorld()->SpawnActor<AGun>(GunBlueprint);
-	if (IsPlayerControlled()) {
+	if (IsPlayerControlled()) 
+	{
 		Gun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint")); 
 	}
-	else {
+	else 
+	{
 		Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
 	}
 	Gun->AnimInstance1P = Mesh1P->GetAnimInstance();
 	Gun->AnimInstance3P = GetMesh()->GetAnimInstance();
 
-	if (InputComponent != NULL) {
+	if (InputComponent != NULL) 
+	{
 		InputComponent->BindAction("Fire", IE_Pressed, this, &AMannequin::PullTrigger);
 	}
 }

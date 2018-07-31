@@ -60,7 +60,8 @@ void AGun::OnFire()
 
 		}
 	}
-	else {
+	else 
+	{
 		UE_LOG(LogTemp, Warning, TEXT("No Projectile"))
 	}
 
@@ -69,7 +70,8 @@ void AGun::OnFire()
 	{
 		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 	}
-	else {
+	else 
+	{
 		UE_LOG(LogTemp, Warning, TEXT("No FireSound"))
 	}
 
