@@ -16,7 +16,7 @@ ATile::ATile()
 }
 void ATile::SetPool(UActorPool* InPool)
 {
-	UE_LOG(LogTemp, Warning, TEXT("[%s] setting %s"), *(this->GetName()), *(InPool->GetName()))
+	
 	Pool = InPool;
 	PositionNavMeshBoundsVolume();
 }
@@ -26,10 +26,10 @@ void ATile::PositionNavMeshBoundsVolume()
 	NavMeshBoundsVolume = Pool->Checkout();
 	if (NavMeshBoundsVolume == nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("[%s] Not enough actors in pool."), *GetName());
+		
 		return;
 	}
-	UE_LOG(LogTemp, Warning, TEXT("[%s] Checked out: {%s}"), *GetName(), *NavMeshBoundsVolume->GetName());
+	
 	NavMeshBoundsVolume->SetActorLocation(GetActorLocation() + NavigationBoundsOffset);
 	GetWorld()->GetNavigationSystem()->Build();
 }
@@ -115,7 +115,7 @@ void ATile::BeginPlay()
 
 void ATile::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%s - returning"), *NavMeshBoundsVolume->GetName())
+	
 	Pool->Return(NavMeshBoundsVolume);
 }
 

@@ -63,7 +63,7 @@ void AFirstPersonCharacter::BeginPlay()
 	Gun->AnimInstance1P = Mesh1P->GetAnimInstance();
 	
 	if (InputComponent == NULL) {
-		UE_LOG(LogTemp, Warning, TEXT("test"))
+		
 	}
 	InputComponent->BindAction("Fire", IE_Pressed, Gun, &AGun::OnFire);
 }
