@@ -4,6 +4,8 @@
 #include "WorldCollision.h"
 #include "ActorPool.h"
 #include "AI/Navigation/NavigationSystem.h"
+#include "GameFramework/Pawn.h"
+#include "Engine/World.h"
 
 // Sets default values
 ATile::ATile()
