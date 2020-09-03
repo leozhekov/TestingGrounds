@@ -3,7 +3,7 @@
 #include "Tile.h"
 #include "WorldCollision.h"
 #include "ActorPool.h"
-#include "AI/Navigation/NavigationSystem.h"
+#include "NavigationSystem.h"
 #include "GameFramework/Pawn.h"
 #include "Engine/World.h"
 
@@ -33,7 +33,7 @@ void ATile::PositionNavMeshBoundsVolume()
 	}
 	
 	NavMeshBoundsVolume->SetActorLocation(GetActorLocation() + NavigationBoundsOffset);
-	GetWorld()->GetNavigationSystem()->Build();
+
 }
 
 template<class T>

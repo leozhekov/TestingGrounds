@@ -17,7 +17,6 @@ struct FSpawnPosition
 
 class UActorPool;
 
-
 UCLASS()
 class TESTINGGROUNDS_API ATile : public AActor
 {
